@@ -1,27 +1,10 @@
-fn main() -> felt252 {
-    fib(16)
-}
 
-fn fib(mut n: felt252) -> felt252 {
-    let mut a: felt252 = 0;
-    let mut b: felt252 = 1;
-    loop {
-        if n == 0 {
-            break a;
-        }
-        n = n - 1;
-        let temp = b;
-        b = a + b;
-        a = temp;
+fn main() {
+    let x = 3;
+    let x= x+1;
+    {
+        let x = x * 2;
+        println!("Inner scope x value: {}", x);
     }
-}
-
-#[cfg(test)]
-mod tests {
-    use super::fib;
-
-    #[test]
-    fn it_works() {
-        assert(fib(16) == 987, 'it works!');
-    }
+    println!("Outer scope x value: {}", x);
 }
